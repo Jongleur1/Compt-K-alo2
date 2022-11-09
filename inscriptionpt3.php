@@ -25,7 +25,7 @@
             <label for="Taille">Password</label>
             <input type="password" name="Taille">
             
-
+</br>
             
             <button type="submit" class="btn_debut"> <a href="inscriptionpt2.php"> Suivant</a></button>
 
