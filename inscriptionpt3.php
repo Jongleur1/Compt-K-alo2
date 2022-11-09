@@ -16,18 +16,18 @@
     
     <div class="form_inscription box">
         <form action="" method="post">
-            <label for="Sexe">Name</label>
+            <label for="Sexe">Sexe</label>
             <input type="text" name="Sexe">
             <label for="Age">Age</label>
             <input type="text" name="Age">
             <label for="Poids"> Poids</label>
             <input type="Poids" name="Poids">
-            <label for="Taille">Password</label>
-            <input type="password" name="Taille">
+            <label for="Taille">Taille</label>
+            <input type="text" name="Taille">
             
 </br>
             
-            <button type="submit" class="btn_debut"> <a href="inscriptionpt2.php"> Suivant</a></button>
+            <button type="submit" class="btn_debut"> <a href="inscriptionfin.php"> Suivant</a></button>
 
         </form>
     </div>
