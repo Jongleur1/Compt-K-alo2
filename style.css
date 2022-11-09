@@ -1,0 +1,96 @@
+
+
+
+.choix_connexion_inscription{
+    font-family: cursive;
+    background-color: white;
+    width: 50%;
+    height: 10%;
+    margin: auto;
+    font-size:80%;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
+}
+.choix_connexion_inscription p {
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    margin-top: 3em;
+}
+
+.choix_connexion_inscription p:first-child{
+    margin-right:50%;
+    text-decoration-line: underline;
+}
+.choix_connexion_inscription a {
+    text-decoration: none;
+    color: black;
+}
+body{
+background-color: #F2F2F2;
+}
+
+.acceuil_titre {
+    text-align: center;
+    margin:auto;
+}
+
+.form_connexion{
+    border: 1px solid  black;
+    border-radius: 15px;
+    width: 350px;
+    height:350px ;
+    background-color: white;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.form_connexion form{
+    display: flex; 
+    margin: auto;
+    text-align: center;
+    flex-direction: column;
+}
+.form_inscription form{
+    width:25%; 
+    margin: auto;
+    text-align: center;
+}
+.box{
+    border: 1px solid  black;
+    border-radius: 15px;
+    width: 640px;
+    height: 904px;
+    background-color: white;
+    margin: auto;
+    margin-top: 50px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+.inscriptionpt2{
+    text-align: center;
+}
+.btn_debut{
+    padding:15px 50px;
+    background: #000000;
+    border-radius: 19px;
+    font-family: 'Comic Neue';
+    font-weight: 700;
+    font-size: 30px;
+    line-height: 35px;
+    text-decoration: none;
+
+/* identical to box height */
+text-align: center;
+color: #FFFFFF;
+}
+.btn_debut a {
+    text-decoration: none;
+    color:white;
+}
