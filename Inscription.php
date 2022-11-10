@@ -11,19 +11,35 @@ if (isset($_POST) && !empty($_POST)){
           } 
           
         if($_SESSION['error'] === [] || $_SESSION['error'] === NULL){
-            echo 'test';
+     
             $name = strip_tags($_POST['name']);
             $surname = strip_tags($_POST['surname']);
+            $_SESSION['user']['surname']= $surname;
             $password = strip_tags($_POST['mdp']);
+            $email = strip_tags($_POST['email']);
             require "conectbdd.php";
-            $sql = "INSERT INTO `informations`(`Nom`, `Prenom`, `Email`, `Mot de passe`) VALUES (:user_nom,:user_surname,:user_email,:user_password)";
+            $sql = "INSERT INTO `informations`(`Nom`, `Prenom`, `Email`, `Motdepasse`) VALUES (:user_nom,:user_surname,:user_email,:user_password)";
             $query = $base->prepare($sql);
-            $query->binvalue(":user_nom",$name, PDO::PARAM_STR);
-            $query->execute();
-
+            $query->bindValue(":user_nom",$name, PDO::PARAM_STR);
+            $query->bindValue(":user_surname",$surname, PDO::PARAM_STR);
+            $query->bindValue(":user_email",$email, PDO::PARAM_STR);
+            $query->bindValue(":user_password",$password, PDO::PARAM_STR);
+            $testmail = "SELECT * FROM `test` WHERE Email=?";
+            $stmt = $base->prepare($testmail);
+            $stmt->execute([$email]); 
+            $user = $stmt->rowCount();
+            if ($user > 0){
+                $_SESSION['error'][]= 'email DEJA RENTRER MON REUF';
+            }
+            else{
+                $query->execute();
+                header('Location: inscriptionpt2.php');
+            }
             
-        }
+
+
         
+        }   
     }
 }
 
@@ -79,9 +95,9 @@ if (isset($_POST) && !empty($_POST)){
 
             
             <button type="submit" class="btn_debut"> Suivant</a></button>
-            <a href="inscriptionpt2.php"> 
 
         </form>
+        <a href="inscriptionpt2.php">dfgh</a> 
 
     </div>
 

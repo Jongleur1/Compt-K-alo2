@@ -1,15 +1,12 @@
 <?php 
 $bdd_name = 'mysql:host=localhost;dbname=comptkalo';
 $user = 'greta';
-$password = 'Greta1234!';
-$ident_user = $_POST['user_login'];
-$mdp_user = $_POST['user_mdp'];
-
+$pass = 'Greta1234!';
 try {
     $base = new PDO(
         $bdd_name, 
         $user, 
-        $password
+        $pass
     );
 } 
 catch (PDOException $excep)

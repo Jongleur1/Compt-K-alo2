@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,8 +19,10 @@
 
     
     <div class="inscriptionpt2 box">
+      
     
-        <p>Bravo Lucas,
+        <p>Bravo <?php 
+         echo $_SESSION['user']['surname']?>,
 Vous avez bientot fini l’inscription, il nous manque encore quelques informations (:</p>
     <button class="btn_debut"><a href="inscriptionpt3.php"> Suivant</a></button>
     </div>
