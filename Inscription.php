@@ -1,37 +1,33 @@
 <?php 
 session_start();
-require "conectbdd.php";
-echo "<pre>";
-var_dump($_POST);
-echo "</pre>";
 if (isset($_POST) && !empty($_POST)){
     if(isset($_POST['name'],$_POST['surname'],$_POST['email'],$_POST['mdp'],$_POST['mdp2'])&& !empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['email']) && !empty($_POST['mdp'])&& !empty($_POST['mdp2'])){
         if($_POST['mdp'] !== $_POST['mdp2']) {
-            // $_SESSION['error'][]='met les même mdp fdp';
+             $_SESSION['error'][]='met les même mdp fdp';
         }
-        if (filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $_SESSION['error'][]='met email valide ';
-          } 
 
-        //email verify 
-        if($_SESSION['error'] === []){
-            unset($_SESSION['error']);
-            //bdd
+        if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
+            $_SESSION['error'][]=' email invalide ';
+          } 
+          
+        if($_SESSION['error'] === [] || $_SESSION['error'] === NULL){
+            echo 'test';
+            $name = strip_tags($_POST['name']);
+            $surname = strip_tags($_POST['surname']);
+            $password = strip_tags($_POST['mdp']);
+            require "conectbdd.php";
+            $sql = "INSERT INTO `informations`(`Nom`, `Prenom`, `Email`, `Mot de passe`) VALUES (:user_nom,:user_surname,:user_email,:user_password)";
+            $query = $base->prepare($sql);
+            $query->binvalue(":user_nom",$name, PDO::PARAM_STR);
+            $query->execute();
+
+            
         }
-        else { ?>
-            <p class="cecicela"><?= $_SESSION['error'][0]?></p>
-        <?php }
+        
     }
 }
 
 ?>
-
-
-
-
-
-
-
 
 
 
@@ -55,7 +51,19 @@ if (isset($_POST) && !empty($_POST)){
 
     
     <div class="form_inscription box">
-    <p class="cecicela"><?= $_SESSION['error'][0]?></p>
+
+    <?php 
+    if (isset ($_SESSION['error'])){
+        foreach ($_SESSION['error'] as $message_erreur ) {
+            echo $message_erreur;
+        }
+        unset($_SESSION['error']);
+    }
+    
+    
+    ?>
+
+
         <form action="" method="post">
             
             <label for="name">Name</label>
@@ -63,7 +71,7 @@ if (isset($_POST) && !empty($_POST)){
             <label for="surname">Surname</label>
             <input type="text" name="surname">
             <label for="email"> Email</label>
-            <input type="email" name="email">
+            <input type="text" name="email">
             <label for="mdp">Password</label>
             <input type="password" name="mdp">
             <label for="mdp2">Repeat password</label>
@@ -74,6 +82,7 @@ if (isset($_POST) && !empty($_POST)){
             <a href="inscriptionpt2.php"> 
 
         </form>
+
     </div>
 
     
