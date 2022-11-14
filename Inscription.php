@@ -3,7 +3,7 @@ session_start();
 if (isset($_POST) && !empty($_POST)){
     if(isset($_POST['name'],$_POST['surname'],$_POST['email'],$_POST['mdp'],$_POST['mdp2'])&& !empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['email']) && !empty($_POST['mdp'])&& !empty($_POST['mdp2'])){
         if($_POST['mdp'] !== $_POST['mdp2']) {
-             $_SESSION['error'][]='met les même mdp fdp';
+             $_SESSION['error'][]='met les même mdp ';
         }
 
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
@@ -14,11 +14,12 @@ if (isset($_POST) && !empty($_POST)){
      
             $name = strip_tags($_POST['name']);
             $surname = strip_tags($_POST['surname']);
-            $_SESSION['user']['surname']= $surname;
             $password = strip_tags($_POST['mdp']);
             $email = strip_tags($_POST['email']);
+        
             require "conectbdd.php";
-            $sql = "INSERT INTO `informations`(`Nom`, `Prenom`, `Email`, `Motdepasse`) VALUES (:user_nom,:user_surname,:user_email,:user_password)";
+            $sql = ("INSERT INTO `informations`(`Nom`, `Prenom`, `Email`, `Motdepasse`) VALUES (:user_nom,:user_surname,:user_email,:user_password)");
+
             $query = $base->prepare($sql);
             $query->bindValue(":user_nom",$name, PDO::PARAM_STR);
             $query->bindValue(":user_surname",$surname, PDO::PARAM_STR);
@@ -27,6 +28,14 @@ if (isset($_POST) && !empty($_POST)){
             $testmail = "SELECT * FROM `test` WHERE Email=?";
             $stmt = $base->prepare($testmail);
             $stmt->execute([$email]); 
+        
+            $_SESSION['user']=[
+                "id" => $id,
+                "name" => $name, 
+                "surname" => $surname,
+                "email"=> $email,
+                "mdp"=> $password
+            ];
             $user = $stmt->rowCount();
             if ($user > 0){
                 $_SESSION['error'][]= 'email DEJA RENTRER MON REUF';

@@ -1,3 +1,68 @@
+<?php  
+session_start();
+$genre = $_POST['Genre'];
+$taille = strip_tags($_POST["Taille"]);
+$age = strip_tags($_POST["Age"]);
+$poids = strip_tags($_POST["Poids"]);
+$taille = (is_numeric($taille)) ? (int)$taille : 0;
+$poids = (is_numeric($taille)) ? (int)$taille : 0;
+$age = (is_numeric($taille)) ? (int)$taille : 0; 
+if (isset($_POST) && !empty($_POST)){
+    if (isset ($_POST['Genre'],$_POST['Age'],$_POST['Taille'], $_POST['Poids']) && !empty($_POST['Poids']) && !empty($_POST['Taille'])&& !empty($_POST['Age'])){
+        if ($taille < 30 || $taille > 300 ){
+            $_SESSION['error'][]='met une taille d humain';
+        }
+        if ($poids < 10  || $poids > 600 ){
+            $_SESSION['error'][]='met un poids d humain sale camion ben';
+        }
+        if ($age < 0  || $age > 150 ){
+            $_SESSION['error'][]='met un age detre humain la momie';
+        }   
+        // if ($genre == 0){
+        //     $genre = "femme";
+        // }
+        // if ($genre == 1){
+        //     $genre = "homme";
+        // }
+    }
+    if($_SESSION['error'] === [] || $_SESSION['error'] === NULL){
+        require "conectbdd.php";
+       $sql = "UPDATE `informations` SET `Sexe`=:user_sexe,`Age`=:user_age,`Taille`=:user_taille,`Poids`=:user_poids WHERE `email` =:user_email";
+       $id= $_SESSION['user']['id'];
+       // $sql="UPDATE `informations` SET `Sexe`=:user_sexe,`Age`=:user_age,`Taille`=:user_taille,`Poids`=:user_poids  WHERE `id` = :user_id";
+            $query = $base->prepare($sql);
+            $query->bindParam(":user_email",$_SESSION['email']);
+            $query->bindParam(":user_sexe",$genre);
+            $query->bindParam(":user_age",$age);
+            $query->bindParam(":user_poids",$email);
+            $query->bindParam(":user_taille",$password);
+            $query->execute();
+    }
+}
+
+
+
+if (isset ($_SESSION['error'])){
+    foreach ($_SESSION['error'] as $message_erreur ) {
+        echo $message_erreur;
+    }
+    unset($_SESSION['error']);
+}
+echo "Tu pretend etre:   grosse  folle de$genre"; 
+
+var_dump($_SESSION);
+?>
+
+
+
+
+
+
+
+
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,18 +81,22 @@
     
     <div class="form_inscription box">
         <form action="" method="post">
-            <label for="Sexe">Sexe</label>
-            <input type="text" name="Sexe">
+            <label for="Genre">Sexe</label>
+            <label for="Genre">Femme</label>
+            <input type="radio" name="Genre" value="0">
+            <label for="Genre">Homme</label>
+            <input type="radio" name="Genre" value="1">
             <label for="Age">Age</label>
-            <input type="text" name="Age">
+            <input type="number" name="Age" min="0" max="150" required>
             <label for="Poids"> Poids</label>
-            <input type="Poids" name="Poids">
-            <label for="Taille">Taille</label>
-            <input type="text" name="Taille">
+            <input type="number" name="Poids" min="0" max="600" required >
+            <label for="Taille">Taille (en cm)</label>
+            <input type="text" name="Taille" min="0" max="300" required>
             
 </br>
             
-            <button type="submit" class="btn_debut"> <a href="inscriptionfin.php"> Suivant</a></button>
+            <button type="submit" class="btn_debut">  Suivant</a></button>
+            <a href="inscriptionfin.php">stbanananan</a>
 
         </form>
     </div>
