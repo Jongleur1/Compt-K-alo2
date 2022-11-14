@@ -27,15 +27,15 @@ if (isset($_POST) && !empty($_POST)){
     }
     if($_SESSION['error'] === [] || $_SESSION['error'] === NULL){
         require "conectbdd.php";
-       $sql = "UPDATE `informations` SET `Sexe`=:user_sexe,`Age`=:user_age,`Taille`=:user_taille,`Poids`=:user_poids WHERE `email` =:user_email";
+       $sql = "UPDATE `informations` SET `Sexe`=:user_sexe,`Age`=:user_age,`Taille`=:user_taille,`Poids`=:user_poids WHERE email = :user_email";
        $id= $_SESSION['user']['id'];
        // $sql="UPDATE `informations` SET `Sexe`=:user_sexe,`Age`=:user_age,`Taille`=:user_taille,`Poids`=:user_poids  WHERE `id` = :user_id";
             $query = $base->prepare($sql);
-            $query->bindParam(":user_email",$_SESSION['email']);
-            $query->bindParam(":user_sexe",$genre);
-            $query->bindParam(":user_age",$age);
-            $query->bindParam(":user_poids",$email);
-            $query->bindParam(":user_taille",$password);
+            $query->bindParam(":user_email",$_SESSION['user']['email'], PDO::PARAM_STR);
+            $query->bindParam(":user_sexe",$genre, PDO::PARAM_INT);
+            $query->bindParam(":user_age",$age, PDO::PARAM_INT);
+            $query->bindParam(":user_poids",$poids, PDO::PARAM_INT);
+            $query->bindParam(":user_taille",$taille, PDO::PARAM_INT);
             $query->execute();
     }
 }

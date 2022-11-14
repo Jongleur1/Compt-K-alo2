@@ -16,19 +16,10 @@ if (isset($_POST) && !empty($_POST)){
             $surname = strip_tags($_POST['surname']);
             $password = strip_tags($_POST['mdp']);
             $email = strip_tags($_POST['email']);
+            
         
             require "conectbdd.php";
-            $sql = ("INSERT INTO `informations`(`Nom`, `Prenom`, `Email`, `Motdepasse`) VALUES (:user_nom,:user_surname,:user_email,:user_password)");
-
-            $query = $base->prepare($sql);
-            $query->bindValue(":user_nom",$name, PDO::PARAM_STR);
-            $query->bindValue(":user_surname",$surname, PDO::PARAM_STR);
-            $query->bindValue(":user_email",$email, PDO::PARAM_STR);
-            $query->bindValue(":user_password",$password, PDO::PARAM_STR);
-            $testmail = "SELECT * FROM `test` WHERE Email=?";
-            $stmt = $base->prepare($testmail);
-            $stmt->execute([$email]); 
-        
+            $id=$base->lastInsertId();
             $_SESSION['user']=[
                 "id" => $id,
                 "name" => $name, 
@@ -36,6 +27,16 @@ if (isset($_POST) && !empty($_POST)){
                 "email"=> $email,
                 "mdp"=> $password
             ];
+            $sql = ("INSERT INTO `informations`(`Nom`, `Prenom`, `Email`, `Motdepasse`) VALUES (:user_nom,:user_surname,:user_email,:user_password)");
+
+            $query = $base->prepare($sql);
+            $query->bindValue(":user_nom",$name, PDO::PARAM_STR);
+            $query->bindValue(":user_surname",$surname, PDO::PARAM_STR);
+            $query->bindValue(":user_email",$email, PDO::PARAM_STR);
+            $query->bindValue(":user_password",$password, PDO::PARAM_STR);
+            $testmail = "SELECT * FROM `informations` WHERE Email=?";
+            $stmt = $base->prepare($testmail);
+            $stmt->execute([$email]);
             $user = $stmt->rowCount();
             if ($user > 0){
                 $_SESSION['error'][]= 'email DEJA RENTRER MON REUF';
