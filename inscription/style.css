@@ -1,0 +1,341 @@
+
+.choix_connexion_inscription{
+    font-family: inherit;
+    background-color: white;
+    width: 50vw;
+    height: 10vh;
+    margin: -15px auto;
+    font-size: 1.5rem;
+    border-radius: 0 0 25px 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+
+}
+.choix_connexion_inscription p {
+    justify-content: center;
+    align-items: center;
+    justify-items: center;
+    margin-top: 8vh;
+}
+
+.choix_connexion_inscription p:first-child{
+    margin-right:25vw;
+}
+
+.choix_connexion_inscription a {
+    text-decoration: none;
+    color: black;
+}
+
+body{
+    background-color: #F2F2F2;
+    font-family: 'Marcellus SC';
+}
+
+.acceuil_titre {
+    text-align: center;
+    margin:auto;
+}
+
+.form_connexion{
+    border: 1px solid  black;
+    border-radius: 15px;
+    width: 30vw;
+    height:50vh ;
+    background-color: white;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.form_connexion form{
+    width: 25vw;
+    display: flex; 
+    margin: auto;
+    text-align: center;
+    flex-direction: column;
+}
+
+.form_inscription form{
+    width:30vw; 
+    margin: auto;
+    text-align: center;
+}
+
+.box{
+    border: 1px solid  black;
+    border-radius: 15px;
+    width: 35vw;
+    height: 80vh;
+    background-color: white;
+    margin: auto;
+    margin-top: 5vh;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.inscriptionpt2{
+    text-align: center;
+}
+
+.btn_debut{
+    width: 11vw;
+    height: 7vh;
+    background: #000000;
+    border-radius: 19px;
+    font-family: inherit;
+    font-weight: 700;
+    font-size: 1rem;
+    line-height: 35px; 
+    margin-top: 4vh;
+    text-align: center;
+    color: white;
+}
+
+.btn_debut a {
+    text-decoration: none;
+    color:white;
+}
+
+.form__group {
+    position: relative;
+    padding: 2vh 0 0;
+    margin-top: 1vh;
+    width: 50%;
+  }
+  
+.form__field {
+  font-family: inherit;
+  width: 200%;
+  border: 0;
+  border-bottom: 2px solid #9b9b9b;
+  outline: 0;
+  font-size: 1.5rem;
+  color: black;
+  padding: 7px 0;
+  background: transparent;
+  transition: border-color 0.2s;
+}
+
+.form__field::placeholder {
+  color: transparent;
+}
+
+.form__field:placeholder-shown ~ .form__label {
+  font-size: 1.2rem;
+  cursor: text;
+  top: 20px;
+}
+  
+.form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #9b9b9b;
+}
+
+.form__field:focus {
+  padding-bottom: 6px;
+  font-weight: 700;
+  border-width: 3px;
+  border-image: linear-gradient(to right, #11998e, #38ef7d);
+  border-image-slice: 1;
+}
+.form__field:focus ~ .form__label {
+  position: absolute;
+  top: 0;
+  display: block;
+  transition: 0.2s;
+  font-size: 1rem;
+  color: #11998e;
+  font-weight: 700;
+}
+
+/* reset input */
+.form__field:required, .form__field:invalid {
+  box-shadow: none;
+}
+.btn_debut:hover{
+  cursor: pointer;
+  background-color: #272626;
+}
+
+.title-compt {
+  font-size: 4rem;
+}
+
+.under-title{
+  font-weight: 400;
+  font-size: 4rem;
+  line-height: 45px;
+}
+
+.form__sexe {
+  font-family: inherit;
+  font-size: 1.3rem;
+  color: #9b9b9b;
+}
+
+.message_inscription {
+    font-family: inherit;
+    color: #9b9b9b;
+    font-size: 1.3rem;
+}
+
+
+
+@media screen and (max-width:1000px) {
+
+  .choix_connexion_inscription {
+    width: 70vw;
+  }
+
+  .form_connexion{
+    width: 50vw;
+    height: 50vh ;
+  }
+
+  .form_connexion form{
+    width: 40vw;
+  }
+
+  .choix_connexion_inscription p:first-child{
+    margin-right:20vw;
+  }
+
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 1rem;
+  }
+
+  .btn_debut {
+    font-size: 0.7rem;
+  }
+
+  /*INSCRIPTION*/
+
+  .box {
+    width: 70vw;
+    height: 80vh;
+  }
+
+  .form_inscription form{
+    width: 60vw;
+  }
+
+}
+
+@media screen and (max-width:810px) {
+
+  .choix_connexion_inscription {
+    width: 70vw;
+  }
+
+  .choix_connexion_inscription p:first-child{
+    margin-right:15vw;
+  }
+
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 0.8rem;
+  }
+
+  .title-compt {
+    font-size: 3rem;
+  }
+
+  .under-title{
+    font-size: 3rem;
+  }
+
+}
+
+@media screen and (max-width:710px) {
+
+  .choix_connexion_inscription{
+    font-size: 1.2rem;
+  }  
+
+  .choix_connexion_inscription p:first-child{
+    margin-right:10vw;
+  }
+
+}
+
+
+
+@media screen and (max-width:610px) {
+
+  .form_connexion{
+    width: 60vw;
+    height: 50vh ;
+  }
+
+  .form_connexion form{
+    width: 50vw;
+  }
+
+  .form__field {
+    font-size: 1.2rem;
+  }
+
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 1rem;
+  }
+
+  .choix_connexion_inscription{
+    font-size: 1rem;
+  }  
+
+  .choix_connexion_inscription p:first-child{
+    margin-right:10vw;
+  }
+
+  .title-compt {
+    font-size: 2rem;
+  }
+
+  .under-title{
+    font-size: 2rem;
+  }
+
+  /*INSCRIPTION*/
+
+  .form_inscription form{
+    width: 60vw;
+  }
+ .label_inscr{
+  font-size: 17px;
+ }
+
+}
+
+@media screen and (max-width:480px) {
+
+  .form_connexion{
+    width: 60vw;
+    height: 50vh ;
+  }
+
+  .form_connexion form{
+    width: 50vw;
+  }
+
+  .form__field {
+    font-size: 1rem;
+  }
+
+  .form__field:placeholder-shown ~ .form__label {
+    font-size: 0.8rem;
+  }
+
+  .btn_debut {
+    width: 20vw;
+    height: 5vh;
+  }
+
+}

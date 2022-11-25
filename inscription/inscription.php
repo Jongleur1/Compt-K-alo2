@@ -15,20 +15,21 @@ if (isset($_POST) && !empty($_POST)){
             $name = strip_tags($_POST['name']);
             $surname = strip_tags($_POST['surname']);
             $password = strip_tags($_POST['mdp']);
+            $password = password_hash($_POST["mdp"], PASSWORD_ARGON2ID);
             $email = strip_tags($_POST['email']);
             
         
-            require "conectbdd.php";
-            $id=$base->lastInsertId();
-            $_SESSION['user']=[
-                "id" => $id,
-                "name" => $name, 
-                "surname" => $surname,
-                "email"=> $email,
-                "mdp"=> $password
-            ];
+            require "../conectbdd.php";
+            
+            // $_SESSION['userTEST']=[
+            //     "surname" => $surname,
+            //     "email"=> $email
+                
+            //     // "age"=> $age,
+            //     // "poids"=> $poids,
+            //     // "taille"=>$taille
+            // ];
             $sql = ("INSERT INTO `informations`(`Nom`, `Prenom`, `Email`, `Motdepasse`) VALUES (:user_nom,:user_surname,:user_email,:user_password)");
-
             $query = $base->prepare($sql);
             $query->bindValue(":user_nom",$name, PDO::PARAM_STR);
             $query->bindValue(":user_surname",$surname, PDO::PARAM_STR);
@@ -42,6 +43,22 @@ if (isset($_POST) && !empty($_POST)){
                 $_SESSION['error'][]= 'email DEJA RENTRER MON REUF';
             }
             else{
+                // $sqltest= ("INSERT INTO `test`(`Email`) VALUES (':user_email')");
+                // $query1 = $base->prepare($sqltest);
+                // $query1->bindValue(":user_email",$email, PDO::PARAM_STR);
+                // $query1->execute( [
+                //     ':user_email' => $email
+                // ]);
+
+                $_SESSION['userTEST']=[
+                    "surname" => $surname,
+                    "email"=> $email,
+                    
+                    
+                    // "age"=> $age,
+                    // "poids"=> $poids,
+                    // "taille"=>$taille
+                ];
                 $query->execute();
                 header('Location: inscriptionpt2.php');
             }
@@ -71,8 +88,8 @@ if (isset($_POST) && !empty($_POST)){
 </head>
 <body>
     <div class="choix_connexion_inscription">
-        <p><a href="index.php">Connexion</a></p>
-        <p>Inscription</p>
+        <p><a href="../index.php">Connexion</a></p>
+        <p><u>Inscription</u></p>
     </div>
 
     
@@ -92,22 +109,47 @@ if (isset($_POST) && !empty($_POST)){
 
         <form action="" method="post">
             
-            <label for="name">Name</label>
-            <input type="text" name="name">
-            <label for="surname">Surname</label>
-            <input type="text" name="surname">
-            <label for="email"> Email</label>
-            <input type="text" name="email">
-            <label for="mdp">Password</label>
-            <input type="password" name="mdp">
-            <label for="mdp2">Repeat password</label>
-            <input type="password" name="mdp2">
+        <div class="form__group field">
+
+            <input type="text" class="form__field" placeholder="Nom" name="name">
+            <label for="name" class="form__label"> Nom </label>
+            
+        </div>    
+
+        <div class="form__group field">
+
+            <input type="text" class="form__field" placeholder="Prénom" name="surname">
+            <label for="surname" class="form__label"> Prénom </label>
+
+        </div>
+
+        <div class="form__group field">
+
+            <input type="text" class="form__field" placeholder="Adresse email" name="email">
+            <label for="email" class="form__label">Adresse email</label>
+            
+        </div>
+
+        <div class="form__group field">
+
+            <input type="password" class="form__field" placeholder="Mot de passe" name="mdp">
+            <label for="mdp" class="form__label">Mot de passe</label>
+
+        </div>
+
+
+        <div class="form__group field">
+
+            <input type="password" class="form__field" placeholder="Répeter le mdp" name="mdp2">
+            <label for="mdp2" class="form__label">Répeter le mdp</label>
+
+        </div>     
 
             
-            <button type="submit" class="btn_debut"> Suivant</a></button>
+            <button type="submit" class="btn_debut"> Suivant </button>
 
         </form>
-        <a href="inscriptionpt2.php">dfgh</a> 
+         
 
     </div>
 

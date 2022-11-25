@@ -8,6 +8,7 @@ try {
         $user, 
         $pass
     );
+    $base->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
 } 
 catch (PDOException $excep)
 {

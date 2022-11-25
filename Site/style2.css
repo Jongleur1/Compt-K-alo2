@@ -1,0 +1,363 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Marcellus SC';
+  background-color: #F2F2F2;
+}
+
+.barre_nav{
+  position: relative;
+    background-color: #01483d;
+    display: flex;
+    flex-direction: row;
+    border-radius: 25px 25px 0 0;
+    height: 111px;
+    width: 833px;
+    margin-top: 5.92vh;
+    bottom: 0;
+}
+.barre_nav img{
+    height: 50px;
+    width: 50px;
+    
+}
+.option1{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    margin:auto;
+    align-items: center;
+    gap: 0.5rem;
+}
+.option1 p {
+    margin-top: -2px;
+}
+
+
+#myImg {
+    border-radius: 5px;
+    cursor: pointer;
+    transition: 0.3s;
+  }
+  
+  #myImg:hover {opacity: 0.7;}
+  
+  /* The Modal (background) */
+  .modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 1; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.9); /* Black w/ opacity */
+  }
+  
+  /* Modal Content (Image) */
+  .modal-content {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+  }
+  
+  /* Caption of Modal Image (Image Text) - Same Width as the Image */
+  #caption {
+    margin: auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    height: 150px;
+  }
+  
+  /* Add Animation - Zoom in the Modal */
+  .modal-content, #caption {
+    animation-name: zoom;
+    animation-duration: 0.6s;
+  }
+  
+  @keyframes zoom {
+    from {transform:scale(0)}
+    to {transform:scale(1)}
+  }
+  
+  /* The Close Button */
+  .close {
+    position: absolute;
+    top: 15px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+  }
+  
+  .close:hover,
+  .close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  
+  /* 100% Image Width on Smaller Screens */
+  @media only screen and (max-width: 700px){
+    .modal-content {
+      width: 100%;
+    }
+  }
+.informations{
+    flex-direction: column;
+    display: flex;
+    background-color: #01483D;
+    width: 40%;
+    margin: auto;
+    border-radius: 20px ;
+    color: white;
+    font-weight: bold;
+    margin-top: 50px;
+}
+
+.informations ul li {
+    margin-top: 30px;
+    list-style-type:none;
+    text-align: center;
+}
+
+/* A REVOIR */
+
+.nbr_calorie form {
+  display: flex;
+  flex-direction: column;
+  background-color: #01483D;
+  color: white;
+  border-radius: 20px ;
+  font-weight: bold;
+  margin: auto;
+  align-items: center;
+  width: 50vw;
+  height: 25vh;  
+  margin-bottom: 10px;
+}
+/* .nbr_calorie input{
+  margin-top: 10%;
+} */
+
+.nbr_calorie input{
+  display: flex;
+  flex-direction: column;
+  margin: auto
+}
+
+.btn_suivie{
+  background-color: black;
+  color: white;
+  border-radius: 25px;
+}
+
+.div_modif_param {
+  display: flex;
+  justify-content: center;
+}
+
+.modif_param {
+border: none;
+background-color: #F2F2F2;
+font-size: 1vw;
+font-weight: bold;
+text-align: center;
+margin-top: 75px;
+cursor: pointer;
+}
+
+.change_param {
+  display: none;
+  margin-top: 20px;
+  margin:auto;
+  justify-content: center;
+  
+}
+.valid_param form{
+  display: flex;
+  flex-direction: column;
+}
+
+.valid_param input{
+  border-radius: 10px;
+  margin: 10px;
+}
+.stbangroskebab{
+  margin-top: 15px;
+}
+
+
+
+.btn_valid_param{
+  background: #000000;
+  padding: 1vh 1.5vw 1vh 1.5vw;
+  border-radius: 19px;
+  font-family: inherit;
+  font-size: 20px;
+  text-align: center;
+  color: white;
+  margin-top: 2vh;
+  width: 55%;
+  margin: auto;
+}
+
+.border_test{
+border-bottom: solid 1px black;
+width: 1200px;
+margin: auto;
+}
+
+.header_class_text{
+  display: flex;
+  justify-content: space-around;
+  text-decoration: underline;
+  text-decoration-thickness: 3px;
+  align-items: center;
+  height: 4vw;
+  margin-top: 3%;
+  }
+.header_class_text h1{
+  font-size: 400%;
+}
+.header_class_text_graph{
+  margin-bottom: 50px;
+}
+
+.img_profile{
+    margin: auto;
+    text-align: center;
+    display: flex;
+    margin-top: 50px;
+}
+.raviebeth{
+  text-align: center;
+  margin: 50px 0 50px 0;
+  font-weight: bold;
+  font-family: 'Marcellus SC';
+  font-style: normal;
+}
+.container-nav {
+  /* position: fixed; */
+	display: flex;
+	place-items: center;
+	bottom: 0;
+  height: 15%;
+	width: 100%;
+	justify-content: center
+}
+
+.historique_calorie {
+  background-color: #F2CA67;
+  width: 50vw;
+  height: 40%;
+  margin: auto;
+  margin-top: 4vh;
+  border-radius: 25px;
+}
+
+.h3_histo_calorie {
+  text-align: center;
+}
+
+
+table {
+  display: flex;
+  justify-content: center;
+}
+
+td {
+  border: 1px solid #F2F2F2;
+  font-size: 1.5rem;
+}
+
+.imc_result{
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  background-color: #01483d;
+  width: 30%;
+  margin: auto;
+  border-radius: 20px;
+  color: white;
+  font-weight: bold;
+  margin-top: 4%;
+}
+.imc_result p{
+  padding: 5px;}
+
+@media screen and (max-width: 640px){
+  .header_class_text h1{
+    font-size: 200%;
+  }
+  .btn_deconnexion  img{
+    height: 20px;
+    width: 30px;
+    align-self: flex-end;
+  }
+  .imc_result{
+    width: 100%;
+  }
+  .informations{
+    width: 80%;
+  }
+  .informations p{
+  text-align: center;
+}
+  .modif_param{
+    font-size:100%;
+    text-decoration: none;
+    color: black;
+  }
+  .border_test{
+    width: 90%;
+  }
+  .raviebeth{
+    font-size: 20px;
+  }
+  .valid_param{
+    margin:auto;
+    padding-top: 5px;
+  }
+  .valid_param form{
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+  .valid_param input{
+    height: 25px;
+
+  }
+  .modif_age {
+    margin:auto;
+  }
+  .nbr_calorie form{
+    width: 80%;
+    height: 20%;
+    margin-top: 20px;
+  }
+  /* .nbr_calorie input{
+    margin-top: 5%;
+  } */
+  /* .btn_suivie{
+    margin-top: 20px;
+  } */
+  .historique_calorie{
+    width: 80%;
+    height: 65%;
+  }
+  table{
+    width: 100%;
+    height: 10%;
+  }
+
+}

@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,16 +13,27 @@
 </head>
 <body>
     <div class="choix_connexion_inscription">
-        <p><a href="index.php">Connexion</a></p>
-        <p>Inscription</p>
+        <p><a href="../index.php">Connexion</a></p>
+        <p><u>Inscription</u></p>
     </div>
+    
 
     
     <div class="inscriptionpt2 box">
+
+        <div class="message_inscription">
     
-        <p>Bravo Lucas,
+        <p>Bravo <?php echo $_SESSION['userTEST']['surname'];?></br>
 Vous avez  fini l’inscription, </p>
-    <button class="btn_debut"><a href="Acceuil_site.php"> Suivant</a></button>
+
+        </div>
+
+        <div>
+
+    <button class="btn_debut"><a href="../Site/mon_profil.php"> Suivant</a></button>
+
+        </div>
+
     </div>
 
     
