@@ -16,6 +16,9 @@ body {
     margin-top: 5.92vh;
     bottom: 0;
 }
+.grostest{
+  text-align: center;
+}
 .barre_nav img{
     height: 50px;
     width: 50px;
@@ -263,6 +266,7 @@ margin: auto;
   margin: auto;
   margin-top: 4vh;
   border-radius: 25px;
+  
 }
 
 .h3_histo_calorie {

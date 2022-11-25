@@ -1,8 +1,10 @@
 <?php  
 session_start();
-echo "<pre>";
-// var_dump ($_SESSION);
-echo "</pre>";
+if (!isset($_SESSION['userTEST'])){
+    header('Location: ../index.php');
+    exit;
+  }
+
 $genre = $_POST['Genre'];
 $taille = strip_tags($_POST["Taille"]);
 $age = strip_tags($_POST["Age"]);
@@ -14,7 +16,7 @@ if (isset($_POST) && !empty($_POST)){
     if (isset ($_POST['Genre'],$_POST['Age'],$_POST['Taille'], $_POST['Poids']) && !empty($_POST['Poids']) && !empty($_POST['Taille'])&& !empty($_POST['Age'])){
         
         if ($age < 0  || $age > 150 ){
-            $_SESSION['error'][]='met un age detre humain la momie';
+            $_SESSION['error'][]='met un age detre humain';
         } 
         if ($taille < 30 || $taille > 300 ){
             $_SESSION['error'][]='met une taille d humain';
@@ -55,16 +57,6 @@ if (isset($_POST) && !empty($_POST)){
             header('Location: inscriptionfin.php');
     }
 }
-
-
-
-if (isset ($_SESSION['error'])){
-    foreach ($_SESSION['error'] as $message_erreur ) {
-        echo $message_erreur;
-    }
-    unset($_SESSION['error']);
-}
-
 ?>
 
 
@@ -94,6 +86,12 @@ if (isset ($_SESSION['error'])){
     
     <div class="form_inscription box">
         <form action="" method="post">
+        <center><?php if (isset ($_SESSION['error'])){
+    foreach ($_SESSION['error'] as $message_erreur ) {
+        echo $message_erreur;
+    }
+    unset($_SESSION['error']);
+}?></center>
 
             <div class="form__sexe">
             

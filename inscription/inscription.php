@@ -3,11 +3,11 @@ session_start();
 if (isset($_POST) && !empty($_POST)){
     if(isset($_POST['name'],$_POST['surname'],$_POST['email'],$_POST['mdp'],$_POST['mdp2'])&& !empty($_POST['name']) && !empty($_POST['surname']) && !empty($_POST['email']) && !empty($_POST['mdp'])&& !empty($_POST['mdp2'])){
         if($_POST['mdp'] !== $_POST['mdp2']) {
-             $_SESSION['error'][]='met les même mdp ';
+             $_SESSION['error'][]='Les mots de passe ne concordent pas';
         }
 
         if (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $_SESSION['error'][]=' email invalide ';
+            $_SESSION['error'][]=' Veuillez entrez une email valide';
           } 
           
         if($_SESSION['error'] === [] || $_SESSION['error'] === NULL){
@@ -40,7 +40,7 @@ if (isset($_POST) && !empty($_POST)){
             $stmt->execute([$email]);
             $user = $stmt->rowCount();
             if ($user > 0){
-                $_SESSION['error'][]= 'email DEJA RENTRER MON REUF';
+                $_SESSION['error'][]= 'email deja existante';
             }
             else{
                 // $sqltest= ("INSERT INTO `test`(`Email`) VALUES (':user_email')");
@@ -95,7 +95,7 @@ if (isset($_POST) && !empty($_POST)){
     
     <div class="form_inscription box">
 
-    <?php 
+    <p><center><?php 
     if (isset ($_SESSION['error'])){
         foreach ($_SESSION['error'] as $message_erreur ) {
             echo $message_erreur;
@@ -104,7 +104,7 @@ if (isset($_POST) && !empty($_POST)){
     }
     
     
-    ?>
+    ?></p></center>
 
 
         <form action="" method="post">

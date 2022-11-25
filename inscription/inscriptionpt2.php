@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if (!isset($_SESSION['userTEST'])){
+    header('Location: ../index.php');
+    exit;
+  }
 // $email = $_SESSION['userTEST']['email'];
 // require "../conectbdd.php";
 // $sql = ("INSERT INTO `calories`(`email`) VALUES (:user_email)");
@@ -36,13 +40,12 @@ session_start();
 Vous avez bientot fini l’inscription, il nous manque encore quelques informations (:</p>
 
         </div>
+        <a href="inscriptionpt3.php"> 
 
         <div>
-
-    <button class="btn_debut" type="submit"><a href="inscriptionpt3.php"> Suivant</a></button>
-
+    <button class="btn_debut" type="submit">Suivant</button>
         </div>
-
+        </a>
     </div>
 
     

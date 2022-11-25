@@ -33,7 +33,7 @@ if (!empty($_POST)) {
                     
                 }
                 elseif(!password_verify($_POST["password"], $user["Motdepasse"])) {
-                    $_SESSION["error"][] = "Utilisateur ou mot de passe incorrectfwvgbncghxfdxw";
+                    $_SESSION["error"][] = "Utilisateur ou mot de passe incorrect";
                     echo 'test2';
                 }
                 

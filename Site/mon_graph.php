@@ -16,26 +16,26 @@ $tailleimc= $_SESSION['userTEST']['taille']*0.01;
 $imc= $poidimc / ($tailleimc*$tailleimc);
 $imc= round($imc ,1);
 
-if($imc < 16.5){
+if($imc <=16.5){
   $imc_result="c'est chaud la ";
 }
- if($imc<18.5){
+elseif($imc<=18.5){
     $imc_result="Mange un peu ";
 }
-if($imc<25){
+elseif($imc<=25){
     $imc_result="Tous vas bien";
 }
-if($imc<30){
+elseif($imc<=30){
     $imc_result="Fait attention tu es en surpoids";
 
 }
-if($imc<35){
+elseif($imc<=35){
   $imc_result="obésité simple";
 }
-if($imc<40){
+elseif($imc<=40){
   $imc_result="obésité sévère";
 }
-if($imc>40){
+elseif($imc>40){
   $imc_result="obésité massive";
 }
 ?>  
@@ -101,7 +101,7 @@ if($imc>40){
               <?php  if($data[$i]['nbr_klc'] > 2701):?>
               "red",
               <?php endif; ?>
-               <?php  if( $data[$i]['nbr_klc'] > 2301 &&  $data[$i]['nbr_klc'] < 2700):?>
+               <?php  if( $data[$i]['nbr_klc'] > 2301 &&  $data[$i]['nbr_klc'] <= 2700):?>
                "green",
              <?php endif; ?>
         <?php endfor; ?>

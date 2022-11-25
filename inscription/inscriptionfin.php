@@ -1,5 +1,9 @@
 <?php 
 session_start();
+if (!isset($_SESSION['userTEST'])){
+    header('Location: ../index.php');
+    exit;
+  }
 ?>
 
 <!DOCTYPE html>
@@ -28,11 +32,12 @@ Vous avez  fini l’inscription, </p>
 
         </div>
 
+        <a href="../index.php"> 
+
         <div>
-
-    <button class="btn_debut"><a href="../Site/mon_profil.php"> Suivant</a></button>
-
+    <button class="btn_debut" type="submit">Suivant</button>
         </div>
+        </a>
 
     </div>
 
